@@ -67,8 +67,10 @@ static NSString * const kNotificationCellIdentify = @"NotificationCellIdentify";
 }
 
 - (IBAction)panGesture:(UIPanGestureRecognizer *)sender {
-    NSLog(@"-------->");
+    
+    NSLog(@"--------> %@",sender.view);
 }
+
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
     if ([otherGestureRecognizer.view isKindOfClass:[UITableView class]]) {
         return YES;
