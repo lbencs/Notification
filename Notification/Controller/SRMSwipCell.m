@@ -39,7 +39,6 @@
             NSLog(@"%@",constraint);
         }
     }
-//    NSLog(@"----->%@",self.mainContentView.constraints);
     for (NSLayoutConstraint *constraint in self.contentView.constraints) {
         
         if (constraint.secondItem == self.mainContentView && constraint.firstAttribute == NSLayoutAttributeTrailing) {

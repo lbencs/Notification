@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -297,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-168" y="165"/>
+            <point key="canvasLocation" x="-298" y="139"/>
         </scene>
         <!--Time Choose View Controller-->
         <scene sceneID="0FM-qe-CDF">
@@ -328,19 +329,36 @@
                                     <outlet property="delegate" destination="TjM-YS-IrV" id="ESo-8L-4Vx"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhu-ZR-cUA">
+                                <rect key="frame" x="134" y="158" width="315" height="283"/>
+                                <color key="backgroundColor" red="0.096138651899999997" green="0.1950056138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bTK-2G-UJQ" secondAttribute="trailing" id="9SI-g9-hfI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dhu-ZR-cUA" secondAttribute="trailing" constant="135" id="Csg-Rr-exj">
+                                <variation key="widthClass=compact" constant="35"/>
+                            </constraint>
+                            <constraint firstItem="tCe-sP-up2" firstAttribute="top" secondItem="dhu-ZR-cUA" secondAttribute="bottom" constant="159" id="EAb-A1-vAc"/>
+                            <constraint firstItem="dhu-ZR-cUA" firstAttribute="top" secondItem="bEU-0S-2Mv" secondAttribute="bottom" constant="138" id="MeP-sE-Uii"/>
                             <constraint firstItem="tCe-sP-up2" firstAttribute="top" secondItem="bTK-2G-UJQ" secondAttribute="bottom" id="Opt-CC-gbN"/>
                             <constraint firstItem="bTK-2G-UJQ" firstAttribute="top" secondItem="9Uq-DG-MF9" secondAttribute="top" id="T90-lV-lKs"/>
                             <constraint firstItem="bTK-2G-UJQ" firstAttribute="leading" secondItem="9Uq-DG-MF9" secondAttribute="leading" id="VBQ-Qm-bB6"/>
+                            <constraint firstItem="dhu-ZR-cUA" firstAttribute="leading" secondItem="9Uq-DG-MF9" secondAttribute="leadingMargin" constant="118" id="dCf-Pd-hyh">
+                                <variation key="widthClass=compact" constant="18"/>
+                            </constraint>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="bTK-2G-UJQ"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4FP-in-a6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="783" y="239"/>
+            <point key="canvasLocation" x="599" y="207"/>
         </scene>
     </scenes>
     <resources>
