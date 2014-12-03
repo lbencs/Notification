@@ -10,28 +10,42 @@
 
 #define kMinVelocity  100.0
 
+@interface SRMSwipCell ()
+{
+    CGFloat  _dragDistance;
+    CGFloat _oldRightConstrainConstant;
+}
+@end
+
+
 @implementation SRMSwipCell
 
 - (void)awakeFromNib {
     
     //    self.translatesAutoresizingMaskIntoConstraints = NO;
     // Initialization code
-    [self.gestureRecognizers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if ([obj isKindOfClass:[UIGestureRecognizer class]]) {
-            [self removeGestureRecognizer:obj];
-        }
-    }];
+//    [self.gestureRecognizers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        if ([obj isKindOfClass:[UIGestureRecognizer class]]) {
+//            [self removeGestureRecognizer:obj];
+//        }
+//    }];
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizer:)];
     panGesture.delegate = self;
     panGesture.delaysTouchesEnded = NO;
     [self addGestureRecognizer:panGesture];
+    
+    _oldRightConstrainConstant = _mainViewRIghtConstrain.constant;
+}
+
+- (void)initialization{
+    _dragDistance = 0;
 }
 
 - (void)panGestureRecognizer:(UIPanGestureRecognizer *)panGesture{
     
     CGPoint transPoint = [panGesture translationInView:panGesture.view];
     CGPoint vialyPoint = [panGesture velocityInView:panGesture.view];
-    if (vialyPoint.x > 0) {
+    if (1) {
         switch (panGesture.state) {
             case UIGestureRecognizerStateCancelled:
             case UIGestureRecognizerStateEnded:
@@ -46,6 +60,7 @@
                 break;
             case UIGestureRecognizerStateBegan:
             {
+                
             }
                 break;
             case UIGestureRecognizerStateChanged:

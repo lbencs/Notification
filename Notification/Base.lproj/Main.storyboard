@@ -38,9 +38,6 @@
                                                                     <integer key="value" value="25"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
-                                                            <variation key="widthClass=compact" fixedFrame="YES">
-                                                                <rect key="frame" x="0.0" y="1" width="360" height="50"/>
-                                                            </variation>
                                                         </view>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="loginqq" translatesAutoresizingMaskIntoConstraints="NO" id="uRy-at-15z">
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -88,7 +85,7 @@
                                                                             <exclude reference="zYg-wm-0Pr"/>
                                                                         </mask>
                                                                     </variation>
-                                                                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                                    <variation key="widthClass=compact" misplaced="YES">
                                                                         <rect key="frame" x="20" y="15" width="49" height="21"/>
                                                                         <mask key="constraints">
                                                                             <exclude reference="siP-rB-Qx4"/>
@@ -129,7 +126,7 @@
                                                                             <exclude reference="slF-Xg-UEE"/>
                                                                         </mask>
                                                                     </variation>
-                                                                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                                    <variation key="widthClass=compact" misplaced="YES">
                                                                         <rect key="frame" x="75" y="0.0" width="80" height="50"/>
                                                                         <mask key="constraints">
                                                                             <exclude reference="DpB-ZR-9pw"/>
@@ -156,7 +153,7 @@
                                                                             <exclude reference="uOO-oC-MaS"/>
                                                                         </mask>
                                                                     </variation>
-                                                                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                                    <variation key="widthClass=compact" misplaced="YES">
                                                                         <rect key="frame" x="303" y="10" width="37" height="30"/>
                                                                     </variation>
                                                                 </button>
@@ -179,9 +176,6 @@
                                                                     <integer key="value" value="25"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
-                                                            <variation key="widthClass=compact" fixedFrame="YES">
-                                                                <rect key="frame" x="0.0" y="1" width="360" height="50"/>
-                                                            </variation>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
