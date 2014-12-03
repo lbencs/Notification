@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIView *circleBackGroundView;
 @property (weak, nonatomic) IBOutlet UIImageView *finishedIconImageView;
 @property (weak, nonatomic) IBOutlet UIView *mainContentView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *finishedIconConstrain;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewRIghtConstrain;
 
 @end

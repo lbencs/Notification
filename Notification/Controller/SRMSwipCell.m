@@ -8,11 +8,13 @@
 
 #import "SRMSwipCell.h"
 
+#define kMinVelocity  100.0
+
 @implementation SRMSwipCell
 
 - (void)awakeFromNib {
     
-//    self.translatesAutoresizingMaskIntoConstraints = NO;
+    //    self.translatesAutoresizingMaskIntoConstraints = NO;
     // Initialization code
     [self.gestureRecognizers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if ([obj isKindOfClass:[UIGestureRecognizer class]]) {
@@ -21,52 +23,76 @@
     }];
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizer:)];
     panGesture.delegate = self;
+    panGesture.delaysTouchesEnded = NO;
     [self addGestureRecognizer:panGesture];
 }
+
 - (void)panGestureRecognizer:(UIPanGestureRecognizer *)panGesture{
     
-    // 偏移量
-    CGPoint location = [panGesture locationInView:panGesture.view];
     CGPoint transPoint = [panGesture translationInView:panGesture.view];
-//    NSLog(@"%@ %@",NSStringFromCGPoint(location),NSStringFromCGPoint(transPoint));
-    for (NSLayoutConstraint *constraint in self.mainContentView.constraints) {
-//        NSLog(@"%@  %@",constraint,constraint)
-        if (constraint.secondItem == self.finishedIconImageView) {
-            constraint.constant += transPoint.x;
-            NSLog(@"%@",constraint);
-        }
-        if (constraint.firstAttribute == NSLayoutAttributeLeft) {
-            NSLog(@"%@",constraint);
+    CGPoint vialyPoint = [panGesture velocityInView:panGesture.view];
+    if (vialyPoint.x > 0) {
+        switch (panGesture.state) {
+            case UIGestureRecognizerStateCancelled:
+            case UIGestureRecognizerStateEnded:
+            case UIGestureRecognizerStateFailed:
+            {
+                _mainViewRIghtConstrain.constant = 20;
+                _finishedIconConstrain.constant = 0;
+                [UIView animateWithDuration:0.3 animations:^{
+                    [self layoutIfNeeded];
+                }];
+            }
+                break;
+            case UIGestureRecognizerStateBegan:
+            {
+            }
+                break;
+            case UIGestureRecognizerStateChanged:
+            {
+                _mainViewRIghtConstrain.constant += -transPoint.x;
+                _finishedIconConstrain.constant += transPoint.x;
+            }
+                break;
+                
+            default:
+                break;
         }
     }
-    for (NSLayoutConstraint *constraint in self.contentView.constraints) {
-        
-        if (constraint.secondItem == self.mainContentView && constraint.firstAttribute == NSLayoutAttributeTrailing) {
-            constraint.constant += - transPoint.x;
-        }
-    }
-    
-    [self.contentView.constraints enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        
-    }];
-//    NSLog(@"%f", transPoint.x);
     [panGesture setTranslation:CGPointZero inView:panGesture.view];
-//
-//    CABasicAnimation* ba = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-//    ba.autoreverses = YES;
-//    ba.fromValue = @(2);
-//    ba.toValue = @(30);
-//    ba.byValue = @(100);
-//    ba.duration = 0.3;
-//    ba.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.4, 1.4, 1)];
-//    [self.finishedIconImageView.layer addAnimation:ba forKey:nil];
+    
+    
+    //
+    //    CABasicAnimation* ba = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    //    ba.autoreverses = YES;
+    //    ba.fromValue = @(2);
+    //    ba.toValue = @(30);
+    //    ba.byValue = @(100);
+    //    ba.duration = 0.3;
+    //    ba.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.4, 1.4, 1)];
+    //    [self.finishedIconImageView.layer addAnimation:ba forKey:nil];
 }
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-    return YES;
-}
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     // Configure the view for the selected state
+}
+
+#pragma gesture delegate
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+        UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)gestureRecognizer;
+        CGPoint velocityPoint = [panGestureRecognizer velocityInView:gestureRecognizer.view];
+        if (fabsf(velocityPoint.x) > kMinVelocity) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    return YES;
 }
 
 @end
