@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class SRMSwipCell;
+@protocol SRMSwipCellDelegate <NSObject>
+- (void)deleteSelectedCell:(SRMSwipCell *)cell;
+@end
+
+
 @interface SRMSwipCell : UITableViewCell<UIGestureRecognizerDelegate>
+
+@property (weak, nonatomic) IBOutlet id<SRMSwipCellDelegate>delegate;
 
 @property (weak, nonatomic) IBOutlet UIImageView *completionTagImageView;
 @property (weak, nonatomic) IBOutlet UIView *textView;
@@ -18,7 +26,8 @@
 
 
 //
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *finishedIconConstrain;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewLeftConstrain;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewRIghtConstrain;
 
+- (void)configueCell:(id)model;
 @end

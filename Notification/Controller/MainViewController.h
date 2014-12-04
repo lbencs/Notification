@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-//typedef NS_ENUM(NSInteger, SRMC) <#new#>;
+#import "SRMSwipCell.h"
 
-
-@interface MainViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>
-- (IBAction)swipeToRightGesture:(UISwipeGestureRecognizer *)sender;
-- (IBAction)panGesture:(UIPanGestureRecognizer *)sender;
+@interface MainViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate,SRMSwipCellDelegate>
 
 @end

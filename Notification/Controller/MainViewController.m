@@ -7,7 +7,7 @@
 //
 
 #import "MainViewController.h"
-#import "SRMSwipCell.h"
+
 static NSString * const kNotificationCellIdentify = @"NotificationCellIdentify";
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *noticeTableView;
@@ -32,49 +32,37 @@ static NSString * const kNotificationCellIdentify = @"NotificationCellIdentify";
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return [_noticeItems count];
+//    return 1;
 }
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    return [_noticeItems count];
     return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SRMSwipCell *cell = [tableView dequeueReusableCellWithIdentifier:kNotificationCellIdentify];
+    [cell configueCell:nil];
     return cell;
 }
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
     return NO;
 }
-
-- (IBAction)swipeToRightGesture:(UISwipeGestureRecognizer *)sender {
-    switch (sender.state) {
-        case UIGestureRecognizerStateBegan:
-        {
-            NSLog(@"start");
-        }
-            break;
-        case UIGestureRecognizerStateChanged:
-        {
-            NSLog(@"changed");
-        }
-            break;
-        case UIGestureRecognizerStateEnded:
-        {
-            NSLog(@"end");
-        }
-            break;
-        default:
-            break;
-    }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
 }
-
-- (IBAction)panGesture:(UIPanGestureRecognizer *)sender {
-    
-    NSLog(@"--------> %@",sender.view);
-}
-
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
     if ([otherGestureRecognizer.view isKindOfClass:[UITableView class]]) {
         return YES;
     }
     return NO;
+}
+
+- (void)deleteSelectedCell:(SRMSwipCell *)cell{
+    NSIndexPath *indexPath = [_noticeTableView indexPathForCell:cell];
+    if (indexPath)
+    {
+        NSLog(@"%ld   %ld",(long)indexPath.row,(long)indexPath.section);
+        [_noticeItems removeObjectAtIndex:indexPath.row];
+        [_noticeTableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 @end
