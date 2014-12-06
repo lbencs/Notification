@@ -39,7 +39,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginqq" translatesAutoresizingMaskIntoConstraints="NO" id="uRy-at-15z">
+                                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="loginqq" translatesAutoresizingMaskIntoConstraints="NO" id="uRy-at-15z">
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="1" id="CN4-xk-j1G">
@@ -210,11 +210,11 @@
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="be3-ds-RaY"/>
-                                                            <exclude reference="Pob-vp-atn"/>
                                                             <exclude reference="LAq-cC-KHH"/>
                                                             <exclude reference="dql-sT-4tW"/>
                                                             <exclude reference="lhC-wD-hBs"/>
+                                                            <exclude reference="be3-ds-RaY"/>
+                                                            <exclude reference="Pob-vp-atn"/>
                                                         </mask>
                                                     </variation>
                                                 </view>

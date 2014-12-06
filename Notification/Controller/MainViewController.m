@@ -32,10 +32,8 @@ static NSString * const kNotificationCellIdentify = @"NotificationCellIdentify";
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return [_noticeItems count];
-//    return 1;
 }
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return [_noticeItems count];
     return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

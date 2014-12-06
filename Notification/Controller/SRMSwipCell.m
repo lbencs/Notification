@@ -37,7 +37,6 @@
     
     _oldRightConstrainConstant = _mainViewRIghtConstrain.constant;
 }
-
 - (void)initialization{
     _dragDistance = 0;
     _mainViewRIghtConstrain.constant = 0;
@@ -48,10 +47,26 @@
 }
 
 - (void)panGestureRecognizer:(UIPanGestureRecognizer *)panGesture{
-    
     CGPoint transPoint = [panGesture translationInView:panGesture.view];
+    static CGPoint originalCenter;
     if (1) {
         switch (panGesture.state) {
+            case UIGestureRecognizerStateBegan:
+            {
+                originalCenter = self.center;
+            }
+                break;
+            case UIGestureRecognizerStateChanged:
+            {
+                _mainViewRIghtConstrain.constant += -transPoint.x;
+                _contentViewLeftConstrain.constant += transPoint.x;
+                
+                //image
+                static CGFloat kStart = 1.5;
+                _finishedIconImageView.alpha += 1.0/10;
+                _finishedIconImageView.transform = CGAffineTransformMakeScale(kStart, kStart);
+            }
+                break;
             case UIGestureRecognizerStateCancelled:
             case UIGestureRecognizerStateEnded:
             case UIGestureRecognizerStateFailed:
@@ -66,44 +81,16 @@
                 }];
             }
                 break;
-            case UIGestureRecognizerStateBegan:
-            {
-                
-            }
-                break;
-            case UIGestureRecognizerStateChanged:
-            {
-                _mainViewRIghtConstrain.constant += -transPoint.x;
-                _contentViewLeftConstrain.constant += transPoint.x;
-                
-                //image
-                static CGFloat kStart = 1.5;
-                _finishedIconImageView.alpha += 1.0/10;
-                _finishedIconImageView.transform = CGAffineTransformMakeScale(kStart, kStart);
-            }
-                break;
                 
             default:
                 break;
         }
     }
     [panGesture setTranslation:CGPointZero inView:panGesture.view];
-    
-    
-    //
-    //    CABasicAnimation* ba = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    //    ba.autoreverses = YES;
-    //    ba.fromValue = @(2);
-    //    ba.toValue = @(30);
-    //    ba.byValue = @(100);
-    //    ba.duration = 0.3;
-    //    ba.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.4, 1.4, 1)];
-    //    [self.finishedIconImageView.layer addAnimation:ba forKey:nil];
 }
 
 - (void)deleteCellFromTableviewAnimation{
     _mainViewRIghtConstrain.constant = CGRectGetWidth(self.frame);
-
     [UIView animateWithDuration:1.0 animations:^{
         [self layoutIfNeeded];
     } completion:^(BOOL finished) {
@@ -112,11 +99,11 @@
         }
     }];
 }
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     // Configure the view for the selected state
 }
-
 #pragma gesture delegate
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
