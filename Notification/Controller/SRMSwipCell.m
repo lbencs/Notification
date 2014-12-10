@@ -48,6 +48,7 @@
 
 - (void)panGestureRecognizer:(UIPanGestureRecognizer *)panGesture{
     CGPoint transPoint = [panGesture translationInView:panGesture.view];
+    CGPoint velocityPoint = [panGesture velocityInView:panGesture.view];
     static CGPoint originalCenter;
     if (1) {
         switch (panGesture.state) {
@@ -58,8 +59,23 @@
                 break;
             case UIGestureRecognizerStateChanged:
             {
-                _mainViewRIghtConstrain.constant += -transPoint.x;
-                _contentViewLeftConstrain.constant += transPoint.x;
+                NSLog(@"%@",NSStringFromCGRect(_mainContentView.frame));
+                NSLog(@"%d",CGRectGetMinX(_mainContentView.frame));
+                
+                if (CGRectGetMinX(_mainContentView.frame) >= 0) {
+                    if (CGRectGetMaxX(_mainContentView.frame) <= 0) {
+                        CGRect frame = _mainContentView.layer.frame;
+                        frame.origin.x = 0;
+                        _mainContentView.layer.frame = frame;
+                        return;
+                    }
+                    POPDecayAnimation *decayAnimation = [POPDecayAnimation animationWithPropertyNamed:kPOPLayerPositionX];
+                    decayAnimation.delegate = self;
+                    decayAnimation.velocity = [NSValue valueWithCGPoint:velocityPoint];
+                    [_mainContentView.layer pop_addAnimation:decayAnimation forKey:@"layerPositionAnimation"];
+                }
+                //                _mainViewRIghtConstrain.constant += -transPoint.x;
+//                _contentViewLeftConstrain.constant += transPoint.x;
                 
                 //image
                 static CGFloat kStart = 1.5;
@@ -71,14 +87,14 @@
             case UIGestureRecognizerStateEnded:
             case UIGestureRecognizerStateFailed:
             {
-                _mainViewRIghtConstrain.constant = 20;
-                _contentViewLeftConstrain.constant = 0;
-                [UIView animateWithDuration:0.3 animations:^{
-                    _finishedIconImageView.alpha = 0;
-                    _finishedIconImageView.transform = CGAffineTransformMakeScale(1, 1);
-                    [self layoutIfNeeded];
-                    [self deleteCellFromTableviewAnimation];
-                }];
+//                _mainViewRIghtConstrain.constant = 20;
+//                _contentViewLeftConstrain.constant = 0;
+//                [UIView animateWithDuration:0.3 animations:^{
+//                    _finishedIconImageView.alpha = 0;
+//                    _finishedIconImageView.transform = CGAffineTransformMakeScale(1, 1);
+//                    [self layoutIfNeeded];
+//                    [self deleteCellFromTableviewAnimation];
+//                }];
             }
                 break;
                 
