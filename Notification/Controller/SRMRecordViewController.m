@@ -37,14 +37,14 @@
     self.recorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:&error];
     
     if(error) {
-        NSLog(@"Ups, could not create recorder %@", error);
+        DLog(@"Ups, could not create recorder %@", error);
         return;
     }
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
     
     if (error) {
-        NSLog(@"Error setting category: %@", [error description]);
+        DLog(@"Error setting category: %@", [error description]);
     }
     
     [self.recorder prepareToRecord];
@@ -78,14 +78,14 @@
 - (void)recordButtonLongPressed:(UILongPressGestureRecognizer *)gesture
 {
     if (gesture.state == UIGestureRecognizerStateBegan) {
-        NSLog(@"Touch down");
+        DLog(@"Touch down");
         
         [self startRecording];
         
     }
     if (gesture.state == UIGestureRecognizerStateEnded) {
         
-        NSLog(@"Long press Ended");
+        DLog(@"Long press Ended");
         [self stopRecording];
     }
 }

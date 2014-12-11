@@ -34,6 +34,10 @@
     panGesture.delegate = self;
     panGesture.delaysTouchesEnded = NO;
     [self addGestureRecognizer:panGesture];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playVoice:)];
+    _playButtonImage.userInteractionEnabled = YES;
+    [_playButtonImage addGestureRecognizer:tapGesture];
 }
 - (void)initialization{
     _dragDistance = 0;
@@ -80,7 +84,7 @@
                 }
                 
                 
-                NSLog(@"%d",_exceedEnougthToDelete);
+                DLog(@"%d",_exceedEnougthToDelete);
                 //image
                 static CGFloat kStart = 1.5;
                 //变大
@@ -122,9 +126,6 @@
     _mainViewRIghtConstrain.constant = CGRectGetWidth(self.frame);
     _mainViewLeftConstrain.constant = -CGRectGetWidth(self.frame);
     _contentViewLeftConstrain.constant = 0;
-    
-    
-    
     [UIView animateWithDuration:.4 delay:.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         [self layoutIfNeeded];
     } completion:^(BOOL finished) {
@@ -132,7 +133,6 @@
             [self.delegate deleteSelectedCell:self];
         }
     }];
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -150,6 +150,11 @@
         }
     }
     return NO;
+}
+- (void)playVoice:(UITapGestureRecognizer *)tapGesture {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(swipCell:playVoice:)]) {
+        [self.delegate swipCell:self playVoice:(UIImageView *)tapGesture.view];
+    }
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{

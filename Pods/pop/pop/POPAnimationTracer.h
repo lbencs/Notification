@@ -55,6 +55,6 @@
 /**
  @abstract Property indicating whether tracer should automatically log events and reset collection on animation completion.
  */
-@property (nonatomic, assign) BOOL shouldLogAndResetOnCompletion;
+@property (nonatomic, assign) BOOL shoulNSLogAndResetOnCompletion;
 
 @end

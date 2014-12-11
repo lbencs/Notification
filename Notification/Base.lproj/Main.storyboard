@@ -146,29 +146,14 @@
                                                                         </mask>
                                                                     </variation>
                                                                 </label>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dh0-SV-T8P">
-                                                                    <rect key="frame" x="483" y="10" width="37" height="30"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ros-Fa-DFn">
+                                                                    <rect key="frame" x="490" y="15" width="30" height="20"/>
+                                                                    <color key="backgroundColor" red="0.35683218449999998" green="0.55108342560000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="3gD-6L-D0w"/>
-                                                                        <constraint firstAttribute="width" constant="37" id="B1d-4X-Yz4"/>
-                                                                        <constraint firstAttribute="width" constant="37" id="evI-xn-ITf"/>
-                                                                        <constraint firstAttribute="height" constant="30" id="uOO-oC-MaS"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="6jY-4k-gLH"/>
+                                                                        <constraint firstAttribute="width" constant="30" id="uKi-aq-YVD"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                                    <state key="normal" title="&gt;&gt;&gt;">
-                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    </state>
-                                                                    <variation key="default">
-                                                                        <mask key="constraints">
-                                                                            <exclude reference="B1d-4X-Yz4"/>
-                                                                            <exclude reference="uOO-oC-MaS"/>
-                                                                        </mask>
-                                                                    </variation>
-                                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                                        <rect key="frame" x="323" y="10" width="37" height="30"/>
-                                                                    </variation>
-                                                                </button>
+                                                                </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <gestureRecognizers/>
@@ -176,14 +161,16 @@
                                                                 <constraint firstAttribute="bottom" secondItem="OEQ-gN-G6Q" secondAttribute="bottom" constant="14" id="2Ht-D5-yY4"/>
                                                                 <constraint firstItem="OEQ-gN-G6Q" firstAttribute="top" secondItem="4Fo-6N-Yuy" secondAttribute="top" constant="15" id="3hM-Gy-l9c"/>
                                                                 <constraint firstItem="qLC-fh-dlO" firstAttribute="top" secondItem="4Fo-6N-Yuy" secondAttribute="top" id="Dfa-GV-d7L"/>
-                                                                <constraint firstAttribute="bottom" secondItem="dh0-SV-T8P" secondAttribute="bottom" constant="10" id="Q7b-6v-j0i"/>
-                                                                <constraint firstAttribute="trailing" secondItem="dh0-SV-T8P" secondAttribute="trailing" constant="40" id="WDc-XR-l89"/>
+                                                                <constraint firstItem="ros-Fa-DFn" firstAttribute="top" secondItem="4Fo-6N-Yuy" secondAttribute="top" constant="15" id="WCf-IA-w6l"/>
                                                                 <constraint firstItem="qLC-fh-dlO" firstAttribute="leading" secondItem="OEQ-gN-G6Q" secondAttribute="trailing" constant="6" id="Ydf-2q-MV6"/>
                                                                 <constraint firstAttribute="bottom" secondItem="qLC-fh-dlO" secondAttribute="bottom" id="f3x-k7-ebC"/>
-                                                                <constraint firstItem="dh0-SV-T8P" firstAttribute="top" secondItem="4Fo-6N-Yuy" secondAttribute="top" constant="10" id="hK2-5p-slZ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ros-Fa-DFn" secondAttribute="trailing" constant="40" id="l6J-Oj-KHq">
+                                                                    <variation key="widthClass=compact" constant="20"/>
+                                                                </constraint>
                                                                 <constraint firstItem="OEQ-gN-G6Q" firstAttribute="leading" secondItem="4Fo-6N-Yuy" secondAttribute="leading" constant="80" id="oMc-ig-CKB">
                                                                     <variation key="widthClass=compact" constant="40"/>
                                                                 </constraint>
+                                                                <constraint firstAttribute="bottom" secondItem="ros-Fa-DFn" secondAttribute="bottom" constant="15" id="qvL-EW-Q0f"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -271,6 +258,7 @@
                                             <outlet property="mainContentView" destination="TJc-Ff-W6a" id="osr-bm-HJ9"/>
                                             <outlet property="mainViewLeftConstrain" destination="rdC-gy-pNi" id="SHP-i8-efl"/>
                                             <outlet property="mainViewRIghtConstrain" destination="Gd0-JI-sJ3" id="jnn-EF-ow1"/>
+                                            <outlet property="playButtonImage" destination="ros-Fa-DFn" id="T6h-ed-a0g"/>
                                             <outlet property="textView" destination="4Fo-6N-Yuy" id="lV0-T8-f8O"/>
                                         </connections>
                                     </tableViewCell>

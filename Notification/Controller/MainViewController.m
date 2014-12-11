@@ -11,6 +11,7 @@
 static NSString * const kNotificationCellIdentify = @"NotificationCellIdentify";
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *noticeTableView;
+@property (weak, nonatomic) IBOutlet UIImageView *playVoice;
 @property (strong, nonatomic) NSMutableArray *noticeItems;
 @end
 
@@ -58,9 +59,12 @@ static NSString * const kNotificationCellIdentify = @"NotificationCellIdentify";
     NSIndexPath *indexPath = [_noticeTableView indexPathForCell:cell];
     if (indexPath)
     {
-        NSLog(@"%ld   %ld",(long)indexPath.row,(long)indexPath.section);
+        DLog(@"%ld   %ld",(long)indexPath.row,(long)indexPath.section);
         [_noticeItems removeObjectAtIndex:indexPath.row];
         [_noticeTableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
     }
+}
+- (void)swipCell:(SRMSwipCell *)cell playVoice:(UIImageView *)playButtonImageView{
+    DLog(@"play");
 }
 @end

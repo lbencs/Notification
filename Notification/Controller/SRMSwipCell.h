@@ -10,7 +10,10 @@
 
 @class SRMSwipCell;
 @protocol SRMSwipCellDelegate <NSObject>
+
 - (void)deleteSelectedCell:(SRMSwipCell *)cell;
+//- (void)swipCell:(SRMSwipCell *)cell deleteCell
+- (void)swipCell:(SRMSwipCell *)cell playVoice:(UIImageView *)playButtonImageView;
 @end
 
 
@@ -23,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIView *circleBackGroundView;
 @property (weak, nonatomic) IBOutlet UIImageView *finishedIconImageView;
 @property (weak, nonatomic) IBOutlet UIView *mainContentView;
+@property (weak, nonatomic) IBOutlet UIImageView *playButtonImage;
 
 
 //
