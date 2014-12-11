@@ -28,6 +28,12 @@
 //
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewLeftConstrain;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewRIghtConstrain;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *backgoundRightConstrain;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewLeftConstrain;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *finishImageHeightConstrain;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *finishedImageWidthConstrain;
+
 
 - (void)configueCell:(id)model;
 @end
