@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mEX-LK-8d9">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -355,7 +355,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4FP-in-a6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="599" y="207"/>
+            <point key="canvasLocation" x="399" y="139"/>
+        </scene>
+        <!--Record View Controller-->
+        <scene sceneID="EdN-rb-8BW">
+            <objects>
+                <viewController id="mEX-LK-8d9" customClass="SRMRecordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eiq-Dl-OqT"/>
+                        <viewControllerLayoutGuide type="bottom" id="dpa-uR-l8G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XpE-8U-00W">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tS4-cP-b6c">
+                                <rect key="frame" x="250" y="520" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.65490196078431373" green="0.42745098039215684" blue="0.4823529411764706" alpha="0.41000000000000003" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="i3F-uI-19Q"/>
+                                </constraints>
+                                <state key="normal" title="按住说话">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LsA-p8-hNE" customClass="SCSiriWaveformView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="480"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dpa-uR-l8G" firstAttribute="top" secondItem="tS4-cP-b6c" secondAttribute="bottom" constant="50" id="HE7-U6-fRC"/>
+                            <constraint firstAttribute="trailing" secondItem="LsA-p8-hNE" secondAttribute="trailing" id="I71-ri-Hkh"/>
+                            <constraint firstItem="tS4-cP-b6c" firstAttribute="top" secondItem="LsA-p8-hNE" secondAttribute="bottom" constant="20" id="OMw-MN-qkQ"/>
+                            <constraint firstAttribute="centerX" secondItem="tS4-cP-b6c" secondAttribute="centerX" id="bf6-tl-Qxn"/>
+                            <constraint firstItem="LsA-p8-hNE" firstAttribute="leading" secondItem="XpE-8U-00W" secondAttribute="leading" id="pNH-dw-dhR"/>
+                            <constraint firstItem="LsA-p8-hNE" firstAttribute="top" secondItem="eiq-Dl-OqT" secondAttribute="bottom" id="xfA-8a-nMy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="recordButton" destination="tS4-cP-b6c" id="mDQ-5N-twP"/>
+                        <outlet property="recordWaveView" destination="LsA-p8-hNE" id="o9h-Rg-igR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BoE-w4-5Ya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1092" y="139"/>
         </scene>
     </scenes>
     <resources>
