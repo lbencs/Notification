@@ -13,7 +13,7 @@
 
 @interface SRMSwipCell ()
 {
-    CGFloat  _dragDistance;
+    CGFloat _dragDistance;
     CGFloat _oldRightConstrainConstant;
 }
 @end
