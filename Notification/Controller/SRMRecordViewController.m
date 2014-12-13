@@ -9,10 +9,12 @@
 #import "SRMRecordViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "SCSiriWaveformView.h"
+#import "SKYRecordButton.h"
 
-@interface SRMRecordViewController ()
+@interface SRMRecordViewController ()<SKYRecordButtonDelegate>
 @property (weak, nonatomic) IBOutlet SCSiriWaveformView *recordWaveView;
-@property (weak, nonatomic) IBOutlet UIButton *recordButton;
+@property (weak, nonatomic) IBOutlet SKYRecordButton *recordButton;
+@property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 
 
 @property (nonatomic, strong) CADisplayLink *displayLink;
@@ -58,13 +60,9 @@
     [self.recordWaveView setPrimaryWaveLineWidth:3.0f];
     [self.recordWaveView setSecondaryWaveLineWidth:1.0];
 
+
+    self.recordButton.delegate = self;
     
-    UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc]
-                                             initWithTarget:self
-                                             action:@selector(recordButtonLongPressed:)];
-    // you can control how many seconds before the gesture is recognized
-    gesture.minimumPressDuration = 0.5;
-    [self.recordButton addGestureRecognizer:gesture];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -75,19 +73,40 @@
     self.recordWaveView.hidden = YES;
 }
 
-- (void)recordButtonLongPressed:(UILongPressGestureRecognizer *)gesture
+
+#pragma mark -SKYRecordButtonDelegate
+
+//开始录音
+- (void)longPressBeginInRecordButton:(SKYRecordButton *)recordButton
 {
-    if (gesture.state == UIGestureRecognizerStateBegan) {
-        DLog(@"Touch down");
-        
-        [self startRecording];
-        
-    }
-    if (gesture.state == UIGestureRecognizerStateEnded) {
-        
-        DLog(@"Long press Ended");
-        [self stopRecording];
-    }
+    [self startRecording];
+}
+
+
+//录音结束
+- (void)longPressEndInRecordButton:(SKYRecordButton *)recordButton
+{
+    self.tipLabel.text = @"手指上滑，取消录音";
+    [self stopRecording];
+}
+
+//进入待取消录音状态
+- (void)longPressDragOutsideUpOfRecordButton:(SKYRecordButton *)recordButton
+{
+    self.tipLabel.text = @"松开手指，取消录音";
+}
+
+//继续录音
+- (void)longPressDragEnterRecordButton:(SKYRecordButton *)recordButton
+{
+    self.tipLabel.text = @"手指上滑，取消录音";
+}
+
+//取消录音
+- (void)longPressEndOutsideUpOfRecordButton:(SKYRecordButton *)recordButton
+{
+    self.tipLabel.text = @"手指上滑，取消录音";
+    [self cancelRecording];
 }
 
 - (void) startRecording
@@ -107,6 +126,13 @@
 }
 
 - (void) stopRecording
+{
+    [self.recorder stop];
+    [self stopDisplayLink];
+    [self.recordWaveView restoreToOriginState];
+}
+
+- (void)cancelRecording
 {
     [self.recorder stop];
     [self stopDisplayLink];
