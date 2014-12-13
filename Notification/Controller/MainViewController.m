@@ -64,7 +64,7 @@ static NSString * const kNotificationCellIdentify = @"NotificationCellIdentify";
         [_noticeTableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
-- (void)swipCell:(SRMSwipCell *)cell playVoice:(UIImageView *)playButtonImageView{
-    DLog(@"play");
+- (void)swipCell:(SRMSwipCell *)cell playVoice:(UIImageView *)playButtonImageView isPlaying:(BOOL)isPlaying{
+    DLog(@"play  %d",isPlaying);
 }
 @end

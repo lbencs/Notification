@@ -13,7 +13,7 @@
 
 - (void)deleteSelectedCell:(SRMSwipCell *)cell;
 //- (void)swipCell:(SRMSwipCell *)cell deleteCell
-- (void)swipCell:(SRMSwipCell *)cell playVoice:(UIImageView *)playButtonImageView;
+- (void)swipCell:(SRMSwipCell *)cell playVoice:(UIImageView *)playButtonImageView isPlaying:(BOOL)isPlaying;
 @end
 
 

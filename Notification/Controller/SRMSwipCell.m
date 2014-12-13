@@ -12,16 +12,17 @@
 #define kMinVelocity  100.0
 #define kMaxDistanceWithScrollOutofRightView 60.0
 #define kFinishedImageSizeVelocity (20.0/kMaxDistanceWithScrollOutofRightView)
-#define kFinishedImageSize 30
+#define kFinishedImageSize 20
 
 #define kFinishedImageShowedInDisntance 60
 
-@interface SRMSwipCell ()<POPAnimationDelegate,POPAnimatorDelegate>
+@interface SRMSwipCell ()
 {
     CGFloat  _dragDistance;
     CGFloat  _oldRightConstrainConstant;
     BOOL     _exceedEnougthToDelete;  //是否需要删除
     BOOL     _canMoveToLeft;   //是否可以向左移动
+    BOOL     _isPlaying;     //是否正在播放
 }
 @property (strong, nonatomic) CABasicAnimation *basicAnimation;
 @end
@@ -38,6 +39,10 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playVoice:)];
     _playButtonImage.userInteractionEnabled = YES;
     [_playButtonImage addGestureRecognizer:tapGesture];
+    
+    _playButtonImage.animationImages = [self animationImageArray];
+    _playButtonImage.animationDuration = 1.0;
+    _playButtonImage.animationRepeatCount = 1000;
 }
 - (void)initialization{
     _dragDistance = 0;
@@ -69,9 +74,8 @@
                     _contentViewLeftConstrain.constant += transPoint.x;
                     _mainViewRIghtConstrain.constant -= transPoint.x;
                 }
-                
+
                 [panGesture setTranslation:CGPointMake(0, 0) inView:panGesture.view];
-                
                 if (_contentViewLeftConstrain.constant > kMaxDistanceWithScrollOutofRightView) {
                     _exceedEnougthToDelete = YES;
                 }else{
@@ -82,19 +86,16 @@
                 }else{
                     _canMoveToLeft = NO;
                 }
-                
-                
-                DLog(@"%d",_exceedEnougthToDelete);
-                //image
-                static CGFloat kStart = 1.5;
+
                 //变大
-                if (_contentViewLeftConstrain.constant < kFinishedImageSize) {
-                    _finishedImageWidthConstrain.constant += transPoint.x*kFinishedImageSizeVelocity;
-                    _finishImageHeightConstrain.constant += transPoint.x*kFinishedImageSizeVelocity;
-                }
                 //透明度
                 _finishedIconImageView.alpha += transPoint.x/kFinishedImageShowedInDisntance;
-                _finishedIconImageView.transform = CGAffineTransformMakeScale(kStart, kStart);
+                CGFloat scale = fabsf(_mainViewRIghtConstrain.constant/60.0 * 3) ;
+                if (scale <= 3) {
+                    _finishedIconImageView.transform = CGAffineTransformMakeScale(scale, scale);
+                }else{
+                    _finishedIconImageView.transform = CGAffineTransformMakeScale(3, 3);
+                }
             }
                 break;
             case UIGestureRecognizerStateCancelled:
@@ -120,6 +121,16 @@
         }
     }
     [panGesture setTranslation:CGPointZero inView:panGesture.view];
+}
+
+- (NSArray *)animationImageArray{
+    NSMutableArray *animationArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 4; i ++) {
+        NSString *imageName = [NSString stringWithFormat:@"ReceiverVoiceNodePlaying00%d",i];
+        UIImage *image = [UIImage imageNamed:imageName];
+        [animationArray addObject:image];
+    }
+    return animationArray;
 }
 
 - (void)deleteCellFromTableviewAnimation{
@@ -152,8 +163,14 @@
     return NO;
 }
 - (void)playVoice:(UITapGestureRecognizer *)tapGesture {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(swipCell:playVoice:)]) {
-        [self.delegate swipCell:self playVoice:(UIImageView *)tapGesture.view];
+    if (!_isPlaying) {
+        [_playButtonImage startAnimating];
+    }else{
+        [_playButtonImage stopAnimating];
+    }
+    _isPlaying = !_isPlaying;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(swipCell:playVoice:isPlaying:)]) {
+        [self.delegate swipCell:self playVoice:(UIImageView *)tapGesture.view isPlaying:_isPlaying];
     }
 }
 

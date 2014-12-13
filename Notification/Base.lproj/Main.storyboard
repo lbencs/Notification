@@ -146,12 +146,11 @@
                                                                         </mask>
                                                                     </variation>
                                                                 </label>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ros-Fa-DFn">
-                                                                    <rect key="frame" x="490" y="15" width="30" height="20"/>
-                                                                    <color key="backgroundColor" red="0.35683218449999998" green="0.55108342560000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Record_voice_disable" translatesAutoresizingMaskIntoConstraints="NO" id="ros-Fa-DFn">
+                                                                    <rect key="frame" x="500" y="15" width="20" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="6jY-4k-gLH"/>
-                                                                        <constraint firstAttribute="width" constant="30" id="uKi-aq-YVD"/>
+                                                                        <constraint firstAttribute="width" constant="20" id="uKi-aq-YVD"/>
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
@@ -398,6 +397,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Record_voice_disable" width="35" height="35"/>
         <image name="loginqq" width="18" height="18"/>
     </resources>
 </document>
