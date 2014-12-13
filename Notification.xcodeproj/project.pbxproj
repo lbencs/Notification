@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3345E1C61A3C057300FC2BE0 /* SKYRecordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3345E1C51A3C057300FC2BE0 /* SKYRecordButton.m */; };
 		334CE7631A387AFB00C1B020 /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 334CE7621A387AFB00C1B020 /* SCSiriWaveformView.m */; };
 		55CA49921A29705500458B7C /* UIView+srmAddtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CA49911A29705500458B7C /* UIView+srmAddtion.m */; };
 		55CA499B1A29724500458B7C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55CA49981A29724500458B7C /* Info.plist */; };
@@ -36,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		15D0D97629FF86FE8D3C4978 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3345E1C41A3C057300FC2BE0 /* SKYRecordButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKYRecordButton.h; sourceTree = "<group>"; };
+		3345E1C51A3C057300FC2BE0 /* SKYRecordButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKYRecordButton.m; sourceTree = "<group>"; };
 		334CE7611A387AFB00C1B020 /* SCSiriWaveformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSiriWaveformView.h; sourceTree = "<group>"; };
 		334CE7621A387AFB00C1B020 /* SCSiriWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSiriWaveformView.m; sourceTree = "<group>"; };
 		55CA49901A29705500458B7C /* UIView+srmAddtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+srmAddtion.h"; sourceTree = "<group>"; };
@@ -92,6 +95,15 @@
 				15D0D97629FF86FE8D3C4978 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3345E1C31A3C055100FC2BE0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3345E1C41A3C057300FC2BE0 /* SKYRecordButton.h */,
+				3345E1C51A3C057300FC2BE0 /* SKYRecordButton.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		334CE7601A387AFB00C1B020 /* SCSiriWaveformView */ = {
@@ -171,6 +183,7 @@
 		55F219F71A287F5F001B58A3 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
+				3345E1C31A3C055100FC2BE0 /* View */,
 				334CE7601A387AFB00C1B020 /* SCSiriWaveformView */,
 				55CA49951A2971D200458B7C /* AppDelegate */,
 				55CA49941A2971B800458B7C /* Macro */,
@@ -348,6 +361,7 @@
 			files = (
 				55F21A011A287F5F001B58A3 /* Notification.xcdatamodeld in Sources */,
 				55CA49921A29705500458B7C /* UIView+srmAddtion.m in Sources */,
+				3345E1C61A3C057300FC2BE0 /* SKYRecordButton.m in Sources */,
 				55CA499C1A29724500458B7C /* main.m in Sources */,
 				55CA49A81A29739800458B7C /* MainViewController.m in Sources */,
 				55CA49AA1A29739800458B7C /* TimeChooseViewController.m in Sources */,
