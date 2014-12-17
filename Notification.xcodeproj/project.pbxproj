@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3345E1C61A3C057300FC2BE0 /* SKYRecordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3345E1C51A3C057300FC2BE0 /* SKYRecordButton.m */; };
 		334CE7631A387AFB00C1B020 /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 334CE7621A387AFB00C1B020 /* SCSiriWaveformView.m */; };
+		55C4B7041A41D4F600D8FE51 /* SRMSwipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C4B7031A41D4F600D8FE51 /* SRMSwipCell.m */; };
 		55CA49921A29705500458B7C /* UIView+srmAddtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CA49911A29705500458B7C /* UIView+srmAddtion.m */; };
 		55CA499B1A29724500458B7C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55CA49981A29724500458B7C /* Info.plist */; };
 		55CA499C1A29724500458B7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CA49991A29724500458B7C /* main.m */; };
@@ -16,7 +17,6 @@
 		55CA49A81A29739800458B7C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CA49A31A29739800458B7C /* MainViewController.m */; };
 		55CA49A91A29739800458B7C /* SRMRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CA49A51A29739800458B7C /* SRMRecordViewController.m */; };
 		55CA49AA1A29739800458B7C /* TimeChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CA49A71A29739800458B7C /* TimeChooseViewController.m */; };
-		55CA49B01A2B202900458B7C /* SRMSwipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CA49AF1A2B202900458B7C /* SRMSwipCell.m */; };
 		55F21A011A287F5F001B58A3 /* Notification.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55F219FF1A287F5F001B58A3 /* Notification.xcdatamodeld */; };
 		55F21A071A287F5F001B58A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55F21A051A287F5F001B58A3 /* Main.storyboard */; };
 		55F21A091A287F5F001B58A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55F21A081A287F5F001B58A3 /* Images.xcassets */; };
@@ -41,6 +41,8 @@
 		3345E1C51A3C057300FC2BE0 /* SKYRecordButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKYRecordButton.m; sourceTree = "<group>"; };
 		334CE7611A387AFB00C1B020 /* SCSiriWaveformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSiriWaveformView.h; sourceTree = "<group>"; };
 		334CE7621A387AFB00C1B020 /* SCSiriWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSiriWaveformView.m; sourceTree = "<group>"; };
+		55C4B7021A41D4F600D8FE51 /* SRMSwipCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRMSwipCell.h; sourceTree = "<group>"; };
+		55C4B7031A41D4F600D8FE51 /* SRMSwipCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRMSwipCell.m; sourceTree = "<group>"; };
 		55CA49901A29705500458B7C /* UIView+srmAddtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+srmAddtion.h"; sourceTree = "<group>"; };
 		55CA49911A29705500458B7C /* UIView+srmAddtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+srmAddtion.m"; sourceTree = "<group>"; };
 		55CA49981A29724500458B7C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,8 +58,6 @@
 		55CA49A71A29739800458B7C /* TimeChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeChooseViewController.m; sourceTree = "<group>"; };
 		55CA49AB1A2973C700458B7C /* AppMarcro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppMarcro.h; sourceTree = "<group>"; };
 		55CA49AD1A29743D00458B7C /* UtilsMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilsMacro.h; sourceTree = "<group>"; };
-		55CA49AE1A2B202900458B7C /* SRMSwipCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRMSwipCell.h; sourceTree = "<group>"; };
-		55CA49AF1A2B202900458B7C /* SRMSwipCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRMSwipCell.m; sourceTree = "<group>"; };
 		55F219F51A287F5F001B58A3 /* Notification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55F21A001A287F5F001B58A3 /* Notification.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notification.xcdatamodel; sourceTree = "<group>"; };
 		55F21A061A287F5F001B58A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -100,6 +100,7 @@
 		3345E1C31A3C055100FC2BE0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				55C4B7001A41D4F600D8FE51 /* Cell */,
 				3345E1C41A3C057300FC2BE0 /* SKYRecordButton.h */,
 				3345E1C51A3C057300FC2BE0 /* SKYRecordButton.m */,
 			);
@@ -113,6 +114,23 @@
 				334CE7621A387AFB00C1B020 /* SCSiriWaveformView.m */,
 			);
 			path = SCSiriWaveformView;
+			sourceTree = "<group>";
+		};
+		55C4B7001A41D4F600D8FE51 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				55C4B7011A41D4F600D8FE51 /* SRMSwipCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		55C4B7011A41D4F600D8FE51 /* SRMSwipCell */ = {
+			isa = PBXGroup;
+			children = (
+				55C4B7021A41D4F600D8FE51 /* SRMSwipCell.h */,
+				55C4B7031A41D4F600D8FE51 /* SRMSwipCell.m */,
+			);
+			path = SRMSwipCell;
 			sourceTree = "<group>";
 		};
 		55CA498F1A296F8100458B7C /* Category */ = {
@@ -154,8 +172,6 @@
 				55CA49A51A29739800458B7C /* SRMRecordViewController.m */,
 				55CA49A61A29739800458B7C /* TimeChooseViewController.h */,
 				55CA49A71A29739800458B7C /* TimeChooseViewController.m */,
-				55CA49AE1A2B202900458B7C /* SRMSwipCell.h */,
-				55CA49AF1A2B202900458B7C /* SRMSwipCell.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -364,9 +380,9 @@
 				3345E1C61A3C057300FC2BE0 /* SKYRecordButton.m in Sources */,
 				55CA499C1A29724500458B7C /* main.m in Sources */,
 				55CA49A81A29739800458B7C /* MainViewController.m in Sources */,
+				55C4B7041A41D4F600D8FE51 /* SRMSwipCell.m in Sources */,
 				55CA49AA1A29739800458B7C /* TimeChooseViewController.m in Sources */,
 				334CE7631A387AFB00C1B020 /* SCSiriWaveformView.m in Sources */,
-				55CA49B01A2B202900458B7C /* SRMSwipCell.m in Sources */,
 				55CA49A91A29739800458B7C /* SRMRecordViewController.m in Sources */,
 				55CA49A01A29732400458B7C /* AppDelegate.m in Sources */,
 			);

@@ -40,9 +40,7 @@
 
 - (void)configueRecordButton{
     
-
     self.isUpOutsideUp = NO;
-    
     //long press
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressOnButton:)];
     longPressGesture.delegate = self;

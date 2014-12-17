@@ -25,9 +25,11 @@ static NSString * const kTimeCellIdentify = @"TimeChooseCellIdentify";
         [_timeItems addObject:[NSString stringWithFormat:@"%d",i]];
     }
 }
+
 - (void)dealloc{
     _timeItems = nil;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -36,6 +38,7 @@ static NSString * const kTimeCellIdentify = @"TimeChooseCellIdentify";
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [_timeItems count];
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTimeCellIdentify];
     cell.textLabel.text = _timeItems[indexPath.row];
