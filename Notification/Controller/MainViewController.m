@@ -19,7 +19,6 @@ static NSString * const kNotificationCellIdentify = @"NotificationCellIdentify";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     _noticeItems = [[NSMutableArray alloc] init];
     for (int i = 0; i < 19; i ++) {
         [_noticeItems addObject:@"haha"];
@@ -28,8 +27,8 @@ static NSString * const kNotificationCellIdentify = @"NotificationCellIdentify";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return [_noticeItems count];
@@ -48,6 +47,8 @@ static NSString * const kNotificationCellIdentify = @"NotificationCellIdentify";
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
     return YES;
 }
+
+
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
     if ([otherGestureRecognizer.view isKindOfClass:[UITableView class]]) {
         return YES;

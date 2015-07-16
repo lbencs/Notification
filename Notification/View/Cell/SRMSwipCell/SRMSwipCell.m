@@ -25,6 +25,7 @@
     BOOL     _isPlaying;     //是否正在播放
 }
 @property (strong, nonatomic) CABasicAnimation *basicAnimation;
+@property (weak, nonatomic) IBOutlet UIView *cellBackgroundView;
 @end
 
 @implementation SRMSwipCell
@@ -90,7 +91,7 @@
                 //变大
                 //透明度
                 _finishedIconImageView.alpha += transPoint.x/kFinishedImageShowedInDisntance;
-                CGFloat scale = fabsf(_mainViewRIghtConstrain.constant/60.0 * 3) ;
+                CGFloat scale = fabs(_mainViewRIghtConstrain.constant/60.0 * 3) ;
                 if (scale <= 3) {
                     _finishedIconImageView.transform = CGAffineTransformMakeScale(scale, scale);
                 }else{
@@ -156,7 +157,7 @@
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
         UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)gestureRecognizer;
         CGPoint velocityPoint = [panGestureRecognizer velocityInView:gestureRecognizer.view];
-        if (fabsf(velocityPoint.x) > kMinVelocity) {
+        if (fabs(velocityPoint.x) > kMinVelocity) {
             return YES;
         }
     }
